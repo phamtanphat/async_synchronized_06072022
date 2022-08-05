@@ -5,7 +5,7 @@ import 'demo2.dart';
 
 void main(){
     // handleDemo1();
-    // handleDemo2();
+    handleDemo2();
 }
 
 void handleDemo1() {
@@ -14,8 +14,8 @@ void handleDemo1() {
         .catchError((error) => print(error));
 }
 
-// void handleDemo2() {
-//     Dio().get("https://khoapham.vn/KhoaPhamTraining/json/tien/demo2.json")
-//         .then((response) => print(Demo2.fromJson(response.data).toString()))
-//         .catchError((error) => print(error));
-// }
+void handleDemo2() {
+    Dio().get("https://khoapham.vn/KhoaPhamTraining/json/tien/demo2.json")
+        .then((response) => print(Demo2.fromJson(response.data).toString()))
+        .catchError((error) => print(error));
+}
