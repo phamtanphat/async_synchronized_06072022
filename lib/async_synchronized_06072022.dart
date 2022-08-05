@@ -1,11 +1,14 @@
-void main() async{
-    try {
-        var value = await Future.delayed(Duration(seconds: 1), () => throw Exception("Lỗi"));
-        print(value);
-    }catch (e) {
-        print(e);
-    }
+import 'dart:convert';
 
-    // future.then((value) => print(value))
-    //       .catchError((error) => print(error));
+import 'package:async_synchronized_06072022/demo1.dart';
+import 'package:dio/dio.dart';
+
+void main(){
+    handleDemo1();
+}
+
+void handleDemo1() {
+    Dio().get("https://khoapham.vn/KhoaPhamTraining/json/tien/demo1.json")
+        .then((response) => print(Demo1.fromJson(response.data)))
+        .catchError((error) => print(error));
 }
